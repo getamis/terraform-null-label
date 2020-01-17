@@ -3,39 +3,39 @@ output "id" {
   value       = local.enabled ? local.id : ""
 }
 
-output "BuiltWith" {
-  description = "Normalized BuiltWith"
-  value       = local.enabled ? local.BuiltWith : ""
+output "built_with" {
+  description = "Normalized built_with"
+  value       = local.enabled ? local.built_with : ""
 }
 
-output "CreatedBy" {
-  description = "Normalized CreatedBy"
-  value       = local.enabled ? local.CreatedBy : ""
+output "created_by" {
+  description = "Normalized created_by"
+  value       = local.enabled ? local.created_by : ""
 }
 
-output "Crypto" {
-  description = "Normalized Crypto"
-  value       = local.enabled ? local.Crypto : ""
+output "crypto" {
+  description = "Normalized crypto"
+  value       = local.enabled ? local.crypto : ""
 }
 
-output "Environment" {
-  description = "Normalized Environment"
-  value       = local.enabled ? local.Environment : ""
+output "environment" {
+  description = "Normalized environment"
+  value       = local.enabled ? local.environment : ""
 }
 
-output "Language" {
-  description = "Normalized Language"
-  value       = local.enabled ? local.Language : ""
+output "language" {
+  description = "Normalized language"
+  value       = local.enabled ? local.language : ""
 }
 
-output "Project" {
-  description = "Normalized Project"
-  value       = local.enabled ? local.Project : ""
+output "project" {
+  description = "Normalized project"
+  value       = local.enabled ? local.project : ""
 }
 
-output "Service" {
-  description = "Normalized Service"
-  value       = local.enabled ? local.Service : ""
+output "service" {
+  description = "Normalized service"
+  value       = local.enabled ? local.service : ""
 }
 
 output "attributes" {

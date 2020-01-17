@@ -1,9 +1,9 @@
 module "general" {
   source  = "../../"
 
-  Crypto = var.Crypto
-  Environment = var.Environment
-  Language = var.Language
-  Project = var.Project
-  Service = var.Service
+  crypto      = var.crypto
+  environment = var.environment
+  language    = var.language
+  project     = var.project
+  service     = var.service
 }

@@ -1,47 +1,47 @@
-variable "BuiltWith" {
-  description = "BuiltWith, e.g. 'terraform'"
+variable "built_with" {
+  description = "built_with, e.g. 'terraform'"
   type        = string
   default     = "terraform"
 }
 
-variable "CreatedBy" {
-  description = "CreatedBy, e.g. 'jenkins', 'autoscaling'"
+variable "created_by" {
+  description = "created_by, e.g. 'jenkins', 'autoscaling'"
   type        = string
   default     = ""
 }
 
-variable "Crypto" {
-  description = "Crypto, e.g. 'btc', 'eth', 'ltc'"
+variable "crypto" {
+  description = "crypto, e.g. 'btc', 'eth', 'ltc'"
   type        = string
   default     = ""
 }
 
-variable "Environment" {
-  description = "Environment, e.g. 'prod', 'staging', 'dev', 'pre-prod', 'UAT'"
+variable "environment" {
+  description = "environment, e.g. 'prod', 'staging', 'dev', 'pre-prod', 'UAT'"
   type        = string
   default     = ""
 }
 
-variable "Language" {
+variable "language" {
   description = "Language, e.g. 'rails', 'nodejs', 'golang'"
   type        = string
   default     = ""
 }
 
-variable "Project" {
-  description = "Project, e.g. 'max', 'maicoin', 'es'"
+variable "project" {
+  description = "project, e.g. 'max', 'maicoin', 'es'"
   type        = string
   default     = ""
 }
 
-variable "Role" {
-  description = "Role, e.g."
+variable "role" {
+  description = "role, e.g."
   type        = string
   default     = ""
 }
 
-variable "Service" {
-  description = "Service, e.g. 'frontend', 'api', 'daemons'"
+variable "service" {
+  description = "service, e.g. 'frontend', 'api', 'daemons'"
   type        = string
   default     = ""
 }
