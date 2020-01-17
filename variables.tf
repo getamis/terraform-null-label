@@ -19,19 +19,22 @@ variable "crypto" {
 variable "environment" {
   description = "environment, e.g. 'prod', 'staging', 'dev', 'pre-prod', 'UAT'"
   type        = string
-  default     = ""
 }
 
 variable "language" {
-  description = "Language, e.g. 'rails', 'nodejs', 'golang'"
+  description = "language, e.g. 'rails', 'nodejs', 'golang'"
   type        = string
   default     = ""
+}
+
+variable "name" {
+  description = "name, e.g. "
+  type        = string
 }
 
 variable "project" {
   description = "project, e.g. 'max', 'maicoin', 'es'"
   type        = string
-  default     = ""
 }
 
 variable "role" {

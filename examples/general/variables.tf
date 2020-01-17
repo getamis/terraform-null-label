@@ -13,6 +13,11 @@ variable "language" {
   type        = string
 }
 
+variable "name" {
+  description = "name, e.g."
+  type        = string
+}
+
 variable "project" {
   description = "project, e.g. 'max', 'maicoin', 'es'"
   type        = string
