@@ -1,2 +1,27 @@
+**/keys
+# Compiled files
+*.tfstate
+*.tfstate.backup
+
+# Module directory
 .terraform/
-terraform.tfstate*
+.terraform.lock.hcl
+
+# IntelliJ
+*.iml
+.idea
+
+# VS Code
+.vscode/
+
+# ACS
+_output/
+translations/
+
+# Others
+.DS_Store
+
+.terragrunt-cache/
+
+# swp files
+*.swp
