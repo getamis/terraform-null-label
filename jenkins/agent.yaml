@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: helm-repo
+    role: builder
+spec:
+  containers:
+  - name: builder
+    image: 335904908860.dkr.ecr.ap-southeast-1.amazonaws.com/jenkins/terraform-agent:1.0.9
+    imagePullPolicy: Always
+    tty: true
+    command: ['tail', '-f', '/etc/hosts']
+    resources:
+      limits:
+        cpu: 1
+        memory: 500M
+      requests:
+        cpu: 1
+        memory: 500M

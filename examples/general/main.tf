@@ -1,5 +1,5 @@
 module "general" {
-  source  = "../../"
+  source = "../../"
 
   crypto      = var.crypto
   environment = var.environment

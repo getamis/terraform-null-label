@@ -1,0 +1,11 @@
+repos:
+  - repo: git@github.maicoin.site:maiami/pre-commit.git # fork from https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.16 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+    hooks:
+      - id: terraform-fmt
+      - id: terraform-validate
+      - id: terragrunt-hclfmt
+      - id: tflint
+      - id: shellcheck
+      #- id: gofmt
+      #- id: golint
