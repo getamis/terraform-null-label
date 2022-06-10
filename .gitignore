@@ -25,3 +25,6 @@ translations/
 
 # swp files
 *.swp
+
+# checkov
+.external_modules/
