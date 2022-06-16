@@ -111,10 +111,29 @@ pipeline {
                 stage('checkov') {
                     environment {
                         ANSI_COLORS_DISABLED = 'true'
-                        EXTERNAL_MODULES_DOWNLOAD_PATH = "${WORKSPACE}/.external_modules"
+                        EXTERNAL_MODULES_DIR = "${WORKSPACE}/.external_modules"
                     }
                     steps {
-                        // checkov will download all modules. cache this ?
+                        sh 'mkdir -p ${EXTERNAL_MODULES_DIR}'
+
+                        sh '''
+                        checkov -v | head -n 1 >> checkov-checksum.txt
+                        terraform -v >> checkov-checksum.txt
+                        terragrunt -v >> checkov-checksum.txt
+                        cat checkov-checksum.txt
+                        '''
+
+                        extractCache(
+                            prefix: 'tf-null-label-checkov-v1',
+                            checksumFile: 'checkov-checksum.txt',
+                            paths: ["${WORKSPACE}/.external_modules"],
+                            s3: s3CacheConfig,
+                        ) {
+                            sshagent(['ghe-ssh-mai-gitops']) {
+                                sh 'checkov --version'
+                                sh "checkov -d . --download-external-modules True --soft-fail -o junitxml > checkov-result.xml"
+                            }
+                        }
                         sshagent(['ghe-ssh-mai-gitops']) {
                             sh 'checkov --version'
                             sh "checkov -d . --download-external-modules True --soft-fail -o junitxml > checkov-result.xml"
@@ -122,7 +141,7 @@ pipeline {
                     }
                     post {
                         always {
-                            junit((allowEmptyResults: true, testResults: 'checkov-result.xml')
+                            junit(allowEmptyResults: true, testResults: 'checkov-result.xml')
                         }
                     }
                 }
