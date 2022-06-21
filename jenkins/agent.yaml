@@ -4,14 +4,21 @@ kind: Pod
 metadata:
   labels:
     app: helm-repo
-    role: builder
+    role: runner
 spec:
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 3000
+    fsGroup: 2000
   containers:
-  - name: builder
-    image: 335904908860.dkr.ecr.ap-southeast-1.amazonaws.com/jenkins/terraform-agent:1.0.9
-    imagePullPolicy: Always
+  - name: runner
+    image: 335904908860.dkr.ecr.ap-southeast-1.amazonaws.com/jenkins/terraform-agent:1.2.2-2022-23
     tty: true
     command: ['tail', '-f', '/etc/hosts']
+    securityContext:
+      allowPrivilegeEscalation: false
+      runAsNonRoot: true
+      readOnlyRootFilesystem: false
     resources:
       limits:
         cpu: 1
